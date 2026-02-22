@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api'
 import confetti from 'canvas-confetti'
 import './Dashboard.css'
 
@@ -27,7 +27,7 @@ export default function Dashboard() {
         if (balanceRevealed) return
         setLoading(true)
         try {
-            const res = await axios.get('/api/getBalance', { withCredentials: true })
+            const res = await api.get('/api/getBalance')
             const bal = parseFloat(res.data.balance)
             setBalance(bal)
             animateBalance(bal)
@@ -67,7 +67,7 @@ export default function Dashboard() {
 
     const handleLogout = async () => {
         try {
-            await axios.post('/api/logout', {}, { withCredentials: true })
+            await api.post('/api/logout')
         } catch (e) { /* ignore */ }
         localStorage.removeItem('kodbank_user')
         navigate('/login')

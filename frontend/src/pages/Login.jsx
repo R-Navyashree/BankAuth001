@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api'
 import './Login.css'
 
 export default function Login() {
@@ -24,7 +24,7 @@ export default function Login() {
 
         setLoading(true)
         try {
-            const res = await axios.post('/api/login', form, { withCredentials: true })
+            const res = await api.post('/api/login', form)
             localStorage.setItem('kodbank_user', res.data.username)
             navigate('/dashboard')
         } catch (err) {
