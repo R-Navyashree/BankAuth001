@@ -1,0 +1,293 @@
+/* ========================================
+   Registration Page Styles
+   ======================================== */
+
+.register-page {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Left Panel */
+.register-left {
+    width: 40%;
+    background: #0A1628;
+    border-right: 1px solid var(--border-subtle);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.register-left-content {
+    max-width: 360px;
+}
+
+.green-underline {
+    width: 40px;
+    height: 3px;
+    background: var(--accent-green);
+    margin-top: 16px;
+    border-radius: 2px;
+}
+
+.register-tagline {
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 40px;
+    margin-top: 40px;
+    line-height: 1.1;
+}
+
+.register-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.register-features {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.feature-bullet {
+    color: var(--accent-green);
+    font-size: 8px;
+}
+
+.register-powered {
+    position: absolute;
+    bottom: 32px;
+    left: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+}
+
+/* Right Panel */
+.register-right {
+    width: 60%;
+    background: #070F1D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    position: relative;
+    z-index: 1;
+}
+
+.register-form-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.form-title {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.form-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.form-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 20px 0;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.field-error {
+    color: var(--error);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Password */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .glass-input {
+    padding-right: 44px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.password-toggle:hover {
+    color: var(--text-secondary);
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-selected {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--text-primary);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.3s ease;
+}
+
+.dropdown-selected:hover {
+    border-color: var(--border-active);
+}
+
+.dropdown-chevron {
+    color: var(--accent-green);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-chevron.open {
+    transform: rotate(180deg);
+}
+
+.dropdown-panel {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: rgba(14, 24, 42, 0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 4px;
+    z-index: 10;
+}
+
+.dropdown-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-option:hover {
+    background: rgba(106, 175, 69, 0.1);
+}
+
+.lock-icon {
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    font-size: 14px;
+}
+
+/* Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Footer */
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.link-green {
+    color: var(--accent-green);
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.link-green:hover {
+    color: var(--accent-green-bright);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .register-page {
+        flex-direction: column;
+    }
+
+    .register-left {
+        width: 100%;
+        padding: 32px;
+        min-height: auto;
+    }
+
+    .register-right {
+        width: 100%;
+        padding: 32px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-powered {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 32px;
+    }
+}

@@ -1,0 +1,295 @@
+/* ========================================
+   KodBank Global Design System
+   ======================================== */
+
+:root {
+  --bg-primary: #0A0705;
+  --bg-secondary: #120E08;
+  --glass-bg: rgba(14, 24, 42, 0.6);
+  --glass-border: rgba(134, 188, 100, 0.15);
+  --glass-hover: rgba(134, 188, 100, 0.08);
+  --accent-brown: #1E3A5F;
+  --accent-brown-light: #2A5298;
+  --accent-green: #6AAF45;
+  --accent-green-bright: #86BC64;
+  --btn-primary: #6AAF45;
+  --btn-brown: #1E3A5F;
+  --btn-text: #FFFFFF;
+  --text-primary: #F5ECD7;
+  --text-secondary: #A89070;
+  --text-muted: #6B5A42;
+  --border-subtle: rgba(134, 188, 100, 0.12);
+  --border-active: rgba(134, 188, 100, 0.6);
+  --success: #6AAF45;
+  --error: #EF4444;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   Glass Card Base
+   ======================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(134, 188, 100, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Pill Buttons
+   ======================================== */
+.btn-pill {
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--btn-primary);
+  color: var(--btn-text);
+  padding: 14px 28px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-green-bright);
+  box-shadow: 0 0 20px rgba(106, 175, 69, 0.3);
+}
+
+.btn-brown {
+  background: var(--btn-brown);
+  color: var(--btn-text);
+  padding: 14px 28px;
+}
+
+.btn-brown:hover {
+  background: var(--accent-brown-light);
+  box-shadow: 0 0 20px rgba(160, 82, 45, 0.3);
+}
+
+/* ========================================
+   Glass Inputs
+   ======================================== */
+.glass-input {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.glass-input::placeholder {
+  color: var(--text-muted);
+}
+
+.glass-input:focus {
+  border-color: var(--border-active);
+}
+
+.input-label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ========================================
+   Toast Notifications
+   ======================================== */
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  animation: toastIn 0.4s ease;
+  font-size: 14px;
+  color: var(--text-primary);
+  max-width: 360px;
+}
+
+.toast-success {
+  border-left: 3px solid var(--success);
+}
+
+.toast-error {
+  border-left: 3px solid var(--error);
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   Floating Orbs (subtle background)
+   ======================================== */
+.floating-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(106, 175, 69, 0.04);
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.orb:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.orb:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+.orb:nth-child(3) {
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  left: 40%;
+  animation-delay: -10s;
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(15px, 15px) scale(1.02);
+  }
+}
+
+/* ========================================
+   KodBank Logo
+   ======================================== */
+.kodbank-logo {
+  font-weight: 800;
+  display: inline-flex;
+}
+
+.kodbank-logo .kod {
+  color: var(--text-primary);
+}
+
+.kodbank-logo .bank {
+  color: var(--accent-green);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Link resets */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

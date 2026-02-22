@@ -1,0 +1,232 @@
+/* ========================================
+   Login Page Styles
+   ======================================== */
+
+.login-page {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Login Card */
+.login-card {
+    display: flex;
+    max-width: 780px;
+    width: 90%;
+    animation: cardEntrance 0.5s ease;
+}
+
+.login-card:hover {
+    transform: none;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Left Section */
+.login-left {
+    width: 28%;
+    border-right: 1px solid var(--border-subtle);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-welcome {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.login-continue {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.login-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 16px 0;
+}
+
+.secure-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 6px 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    width: fit-content;
+}
+
+/* Middle Section */
+.login-middle {
+    width: 44%;
+    padding: 36px 28px;
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-middle .password-wrapper {
+    position: relative;
+}
+
+.login-middle .password-wrapper .glass-input {
+    padding-right: 44px;
+}
+
+.login-middle .password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.login-middle .password-toggle:hover {
+    color: var(--text-secondary);
+}
+
+/* Right Section */
+.login-right-section {
+    width: 28%;
+    padding: 24px 16px;
+    background: rgba(14, 24, 42, 0.4);
+    border-radius: 0 16px 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-right-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.signin-hint {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.signin-secure {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.login-signin-btn {
+    width: 100%;
+    background: linear-gradient(180deg, #6AAF45, #1E3A5F);
+    border: none;
+    border-radius: 12px;
+    color: var(--btn-text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px 12px;
+    transition: all 0.3s ease;
+}
+
+.login-signin-btn:hover {
+    box-shadow: 0 0 20px rgba(106, 175, 69, 0.3);
+    transform: scale(1.02);
+}
+
+.signin-text {
+    font-size: 14px;
+}
+
+.signin-arrow {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+}
+
+/* Spinner */
+.login-page .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    z-index: 1;
+}
+
+.login-footer .link-green {
+    color: var(--accent-green);
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-footer .link-green:hover {
+    color: var(--accent-green-bright);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .login-left,
+    .login-middle,
+    .login-right-section {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .login-right-section {
+        border-radius: 0 0 16px 16px;
+        border-bottom: none;
+        min-height: auto;
+        padding: 20px;
+    }
+}
