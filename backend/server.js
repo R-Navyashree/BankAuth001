@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -16,6 +16,11 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true
 }));
+
+// Health check
+app.get('/', (req, res) => {
+  res.json({ status: 'KodBank API is running' });
+});
 
 // MySQL Connection
 const db = mysql.createConnection({
