@@ -38,6 +38,7 @@ export default function Dashboard() {
         } catch (err) {
             if (err.response?.status === 401) {
                 localStorage.removeItem('kodbank_user')
+                localStorage.removeItem('kodbank_token')
                 navigate('/login')
             }
         } finally {
@@ -71,6 +72,7 @@ export default function Dashboard() {
             await api.post('/api/logout')
         } catch (e) { /* ignore */ }
         localStorage.removeItem('kodbank_user')
+        localStorage.removeItem('kodbank_token')
         navigate('/login')
     }
 

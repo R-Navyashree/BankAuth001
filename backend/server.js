@@ -144,15 +144,7 @@ app.post('/api/login', (req, res) => {
     db.query(tokenSql, [token, user.uid, expiry], (err) => {
       if (err) return res.status(500).json({ message: 'Server error' });
 
-      // Set HTTP-only cookie
-      res.cookie('token', token, {
-        httpOnly: true,
-        maxAge: 3600000,
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        secure: process.env.NODE_ENV === 'production'
-      });
-
-      return res.status(200).json({ message: 'Login successful', username: user.username });
+      return res.status(200).json({ message: 'Login successful', username: user.username, token });
     });
   });
 });
@@ -161,7 +153,8 @@ app.post('/api/login', (req, res) => {
 // GET /api/getBalance
 // ========================
 app.get('/api/getBalance', (req, res) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : req.cookies.token;
 
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized' });
@@ -197,12 +190,10 @@ app.get('/api/getBalance', (req, res) => {
 // POST /api/logout
 // ========================
 app.post('/api/logout', (req, res) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : req.cookies.token;
 
-  res.clearCookie('token', {
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    secure: process.env.NODE_ENV === 'production'
-  });
+  res.clearCookie('token');
 
   if (token) {
     try {

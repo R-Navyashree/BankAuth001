@@ -26,6 +26,7 @@ export default function Login() {
         try {
             const res = await api.post('/api/login', form)
             localStorage.setItem('kodbank_user', res.data.username)
+            localStorage.setItem('kodbank_token', res.data.token)
             navigate('/dashboard')
         } catch (err) {
             const msg = err.response?.data?.message || 'Login failed'
