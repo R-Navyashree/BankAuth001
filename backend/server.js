@@ -171,7 +171,7 @@ app.get('/api/getBalance', (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const username = decoded.sub;
 
-    const sql = 'SELECT balance FROM KodUser WHERE username = ?';
+    const sql = 'SELECT username, email, balance, role, phone FROM KodUser WHERE username = ?';
     db.query(sql, [username], (err, results) => {
       if (err) return res.status(500).json({ message: 'Server error' });
 
@@ -179,7 +179,14 @@ app.get('/api/getBalance', (req, res) => {
         return res.status(404).json({ message: 'User not found' });
       }
 
-      return res.status(200).json({ balance: results[0].balance });
+      const user = results[0];
+      return res.status(200).json({
+        balance: user.balance,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+        phone: user.phone
+      });
     });
   } catch (error) {
     return res.status(401).json({ message: 'Session expired, please login again' });

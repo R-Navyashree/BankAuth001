@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../api'
 import confetti from 'canvas-confetti'
+import AiChat from '../components/AiChat'
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -209,6 +210,9 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
+
+            {/* AI Chat Assistant */}
+            <AiChat />
         </div>
     )
 }
