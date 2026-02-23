@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gradio/client": "^2.0.4",
     "axios": "^1.13.5",
     "canvas-confetti": "^1.9.4",
     "lucide-react": "^0.575.0",
@@ -19,7 +20,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@gradio/client": "^2.0.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
